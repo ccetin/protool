@@ -17,8 +17,6 @@ program
   .version('1.0.0')
   .option('-a, --account [account]', 'Npm account Name')
   .option('-p, --path [path]', 'Root project path')
-  .option('-t, --author [author]', 'Project author')
-  .option('-i, --description [info]', 'Project description')
   .option('-r, --registry [registry]', 'Npm registry')
   .option('-l, --link', 'Npm link dependencies')
 
