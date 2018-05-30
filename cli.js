@@ -1,17 +1,18 @@
 #!/usr/bin/env node
 
-const Promise = require('bluebird');
-const program = require('commander');
-const ProjectBuilder = require('./lib/projectBuilder');
+const program = require('commander')
+const ProjectBuilder = require('./lib/projectBuilder')
+const ProjectPublisher = require('./lib/ProjectPublisher')
+const ProjectExplorer = require('./lib/ProjectExplorer')
 
 const options = (program) => {
   return {
-    account: program.account,
+    account:  program.account,
     rootPath: program.path,
     registry: program.registry,
-    link: program.link
+    link:     program.link
   }
-};
+}
 
 program
   .version('1.0.0')
@@ -23,14 +24,14 @@ program
 program
   .command('list-projects')
   .description('List all available projects')
-  .action( async () => {
-    let projectBuilder = new ProjectBuilder(options(program));
-    let projects = await projectBuilder.listProjects();
+  .action( async() => {
+    const explorer = new ProjectExplorer(options(program))
+    const projects = await explorer.listProjects()
     Object.values(projects).forEach( (project) => {
-      console.log(project);
-    });
+      console.log(project)
+    })
 
-  });
+  })
 
 program
   .command('install-project [project]')
@@ -39,13 +40,13 @@ program
     if (!program.account) {
       throw new Error('No account selected')
     }
-    let projectBuilder = new ProjectBuilder(options(program));
+    const projectBuilder = new ProjectBuilder(options(program))
     if (project) {
-      projectBuilder.buildSingleProject(project);
+      projectBuilder.executeTaskForSingleProject(project)
     } else {
-      projectBuilder.buildAllProject();
+      projectBuilder.executeTaskForAllProject()
     }
-  });
+  })
 
 program
   .command('publish-project [project]')
@@ -54,42 +55,42 @@ program
     if (!program.account) {
       throw new Error('No account selected')
     }
-    let projectBuilder = new ProjectBuilder(options(program));
+    const publisher = new ProjectPublisher(options(program))
     if (project) {
-      projectBuilder.publishSingleProject(project);
+      publisher.executeTaskForSingleProject(project)
     } else {
-      projectBuilder.publishAllProject();
+      publisher.executeTaskForAllProject()
     }
-  });
+  })
 
 program
   .command('projects-tree')
   .description('Display project tree')
-  .action( async () => {
-    let projectBuilder = new ProjectBuilder(options(program));
-    let graph = await projectBuilder.buildProjectGraph();
-    console.log(projectBuilder.treeView(graph));
-  });
+  .action( async() => {
+    const explorer = new ProjectExplorer(options(program))
+    const { graph } = await explorer.buildProjectGraph()
+    console.log(explorer.treeView(graph))
+  })
 
 program
   .command('projects-graph')
   .description('Display project graph build order')
-  .action( async () => {
-    let projectBuilder = new ProjectBuilder(options(program));
-    let graph = await projectBuilder.buildProjectGraph();
+  .action( async() => {
+    const explorer = new ProjectExplorer(options(program))
+    const { graph } = await explorer.buildProjectGraph()
     try {
       graph.topologicalSort().forEach( (project) => {
-        console.log(`${project}`);
-      });
+        console.log(`${project}`)
+      })
     } catch (e) {
-      throw new Error('Cannot create a topological sort from dependency graph');
+      throw new Error('Cannot create a topological sort from dependency graph')
     }
-  });
+  })
 
 program
-  .parse(process.argv);
+  .parse(process.argv)
 
 if (program.args.length == 0) {
   program.outputHelp()
-  process.exit(1);
+  process.exit(1)
 }
