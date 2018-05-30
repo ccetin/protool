@@ -1,7 +1,7 @@
 {
-  "name": "@xgnomics/build-tools",
+  "name": "project-util",
   "version": "1.0.0",
-  "description": "Build tools",
+  "description": "Project helper tools",
   "main": "index.js",
   "scripts": {
     "test": "make test"
@@ -9,7 +9,6 @@
   "author": "Cihan Cetin",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "*",
     "commander": "*"
   },
   "devDependencies": {
@@ -22,6 +21,8 @@
     ]
   },
   "bin": {
-    "project-cli": "cli.js"
+    "project-explorer": "./bin/explorer.js",
+    "project-builder": "./bin/builder.js",
+    "project-publisher": "./bin/publisher.js"
   }
 }
