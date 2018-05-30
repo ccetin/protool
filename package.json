@@ -9,7 +9,8 @@
   "author": "Cihan Cetin",
   "license": "ISC",
   "dependencies": {
-    "commander": "*"
+    "bunyan": "^1.8.12",
+    "commander": "^2.15.1"
   },
   "devDependencies": {
     "jest": "*"
