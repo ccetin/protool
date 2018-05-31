@@ -26,7 +26,6 @@ Options:
   -V, --version              output the version number
   -a, --account [account]    Npm account name (@scope)
   -p, --path [path]          Root project path
-  -r, --registry [registry]  Npm registry (default: https://registry.npmjs.org)
   -l, --link                 Npm link dependencies
   -h, --help                 output usage information
 
@@ -44,7 +43,6 @@ Options:
   -a, --account [account]    Npm account name (@scope)
   -p, --path [path]          Root project path
   -r, --registry [registry]  Npm registry (default: https://registry.npmjs.org)
-  -l, --link                 Npm link dependencies
   -h, --help                 output usage information
 
 Commands:
