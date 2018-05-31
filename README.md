@@ -1,25 +1,53 @@
-# Project packaging tool without using npm
+## Node project helper tools
+
+
 ```
-node cli.js --help
+Usage: project-explorer [options] [command]
 
-  Usage: cli [options] [command]
+Options:
 
+  -V, --version            output the version number
+  -a, --account [account]  Npm account name (@scope)
+  -p, --path [path]        Root project path
+  -h, --help               output usage information
 
-  Options:
+Commands:
 
-    -V, --version              output the version number
-    -a, --account [account]    Npm account Name
-    -p, --path [path]          Root project path
-    -r, --registry [registry]  Npm registry
-    -l, --link                 Npm link dependencies
-    -h, --help                 output usage information
+  list                     List all available projects
+  tree                     Display project tree
+  graph                    Display project graph build order
+```
 
+```
+Usage: project-builder [options] [command]
 
-  Commands:
+Options:
 
-    list-projects              List all available projects
-    install-project [project]  Install npm modules and potentially link them
-    publish-project [project]  Publish npm modules and potentially link them
-    projects-tree              Display project tree
-    projects-graph             Display project graph build order
+  -V, --version              output the version number
+  -a, --account [account]    Npm account name (@scope)
+  -p, --path [path]          Root project path
+  -r, --registry [registry]  Npm registry (default: https://registry.npmjs.org)
+  -l, --link                 Npm link dependencies
+  -h, --help                 output usage information
+
+Commands:
+
+  install [project]          Install npm modules and link them
+```
+
+```
+Usage: project-publisher [options] [command]
+
+Options:
+
+  -V, --version              output the version number
+  -a, --account [account]    Npm account name (@scope)
+  -p, --path [path]          Root project path
+  -r, --registry [registry]  Npm registry (default: https://registry.npmjs.org)
+  -l, --link                 Npm link dependencies
+  -h, --help                 output usage information
+
+Commands:
+
+  publish [project]          Publish npm modules and link them
 ```
