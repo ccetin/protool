@@ -32,7 +32,7 @@ Options:
 
 Commands:
 
-  install [project]          Install npm modules and link them
+  install [project]          Install npm modules and optionally link them
 ```
 
 ```
@@ -49,5 +49,5 @@ Options:
 
 Commands:
 
-  publish [project]          Publish npm modules and link them
+  publish [project]          Publish npm modules
 ```
