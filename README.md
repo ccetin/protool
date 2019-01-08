@@ -49,3 +49,59 @@ Commands:
 
   publish [project]          Publish npm modules
 ```
+
+## Working with Verdaccio for local development
+
+1. Pull docker image:
+```
+docker pull verdaccio/verdaccio
+mkdir -p /Users/...workdir.../etc/verdaccio/{conf,plugins}
+mkdir -p /Users/...workdir.../var/verdaccio/storage
+docker run -it --name verdaccio -p 4873:4873 \
+  -v /Users/...workdir.../etc/verdaccio/conf:/verdaccio/conf \
+  -v /Users/...workdir.../var/verdaccio/storage:/verdaccio/storage \
+  -v /Users/...workdir.../etc/verdaccio/plugins:/verdaccio/plugins \
+  verdaccio/verdaccio
+```
+
+2. Create config.yaml
+```
+storage: /verdaccio/storage
+auth:
+  htpasswd:
+    file: /verdaccio/conf/htpasswd
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+packages:
+  '@incubator/*':
+    access: $all
+    publish: $all
+  '@humanics/*':
+    access: $all
+    publish: $authenticated
+    proxy: npmjs
+  '@*/*':
+    access: $all
+    publish: $authenticated
+    proxy: npmjs
+  '**':
+    access: $all
+    proxy: npmjs
+logs:
+  - {type: stdout, format: pretty, level: http}
+publish:
+  allow_offline: true
+web:
+  enable: true
+  title: Development NPM Server
+  logo:
+  scope:
+```
+
+3. Add following to ~/.bash_profile
+```
+vpm() {
+  npm --registry http://localhost:4873 $@
+}
+```

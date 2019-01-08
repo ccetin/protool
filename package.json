@@ -4,15 +4,18 @@
   "description": "Project helper tools",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+    "test": "NODE_ENV=test node ./node_modules/jest/bin/jest.js --runInBand ."
   },
   "author": "Cihan Cetin",
   "license": "ISC",
   "dependencies": {
-    "commander": "^2.15.1"
+    "commander": "^2.19.0",
+    "doctrine": "^2.1.0",
+    "glob": "^7.1.3",
+    "js-yaml": "^3.12.1"
   },
   "devDependencies": {
-    "jest": "^23.1.0"
+    "jest": "^23.6.0"
   },
   "jest": {
     "verbose": true,
