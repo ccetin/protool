@@ -26,6 +26,7 @@
   "bin": {
     "project-explorer": "./bin/explorer.js",
     "project-builder": "./bin/builder.js",
+    "project-cleaner": "./bin/cleaner.js",
     "project-publisher": "./bin/publisher.js"
   }
 }
