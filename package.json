@@ -9,6 +9,7 @@
   "author": "Cihan Cetin",
   "license": "ISC",
   "dependencies": {
+    "colors": "^1.3.3",
     "commander": "^2.19.0",
     "doctrine": "^2.1.0",
     "glob": "^7.1.3",
@@ -24,9 +25,9 @@
     ]
   },
   "bin": {
-    "project-explorer": "./bin/explorer.js",
-    "project-builder": "./bin/builder.js",
-    "project-cleaner": "./bin/cleaner.js",
-    "project-publisher": "./bin/publisher.js"
+    "projexplorer": "./bin/explorer.js",
+    "projbuilder": "./bin/builder.js",
+    "projcleaner": "./bin/cleaner.js",
+    "projpublisher": "./bin/publisher.js"
   }
 }
