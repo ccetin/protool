@@ -74,6 +74,13 @@ uplinks:
   npmjs:
     url: https://registry.npmjs.org/
 packages:
+  '@incubator/*':
+    access: $all
+    publish: $all
+  '@humanics/*':
+    access: $all
+    publish: $authenticated
+    proxy: npmjs
   '@*/*':
     access: $all
     publish: $authenticated
