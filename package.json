@@ -1,6 +1,6 @@
 {
   "name": "project-util",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Project helper tools",
   "main": "index.js",
   "scripts": {
