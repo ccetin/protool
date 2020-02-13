@@ -1,0 +1,28 @@
+stages:
+  - QA
+  - publish
+
+before_script:
+  - 'export CI_BUILD_SHORT_REF=$(echo $CI_COMMIT_SHA | head -c 8)'
+  - 'export CI_REGISTRY_REF_NAME=$(echo $CI_BUILD_REF_NAME | sed "s/release\///")'
+  - 'export CI_REGISTRY_TAG=$CI_REGISTRY_REF_NAME-$CI_BUILD_SHORT_REF'
+
+# QA ==========================================================================
+
+qa:
+  stage: QA
+  image: node
+  script:
+    - node -e "console.log(process.env)"
+    - npm install
+    - NODE_ENV=gitlab npm run test
+
+# PUBLISH =======================================================================
+
+publish:
+  stage: publish
+  image: node
+  script:
+    - echo 'npm publish'
+  only:
+    - /^release.*$/
