@@ -2,52 +2,32 @@
 
 
 ```
-Usage: project-explorer [options] [command]
+Usage: projectify | proj | pro [options] [command]
 
 Options:
-
-  -V, --version            output the version number
-  -a, --account [account]  Npm account name (@scope)
-  -p, --path [path]        Root project path
-  -h, --help               output usage information
-
-Commands:
-
-  list                     List all available projects
-  tree                     Display project tree
-  graph                    Display project graph build order
-```
-
-```
-Usage: project-builder [options] [command]
-
-Options:
-
-  -V, --version              output the version number
-  -a, --account [account]    Npm account name (@scope)
-  -p, --path [path]          Root project path
-  -l, --link                 Npm link dependencies
-  -h, --help                 output usage information
+  -V, --version                      output the version number
+  -L, --npm-log-level <npmLogLevel>  set npm log level (http, warn, [silent])
+  -l, --logger-level <level>         set CLI log level (error, warn, [info], debug)
+  -p, --path <path>                  path to run command (CWD)
+  -f, --filter <filter>              filter with comma delimited list
+  -h, --help                         display help for command
 
 Commands:
-
-  install [project]          Install npm modules and optionally link them
-```
-
-```
-Usage: project-publisher [options] [command]
-
-Options:
-
-  -V, --version              output the version number
-  -a, --account [account]    Npm account name (@scope)
-  -p, --path [path]          Root project path
-  -r, --registry [registry]  Npm registry (default: https://registry.npmjs.org)
-  -h, --help                 output usage information
-
-Commands:
-
-  publish [project]          Publish npm modules
+  init [options]                     initialize project
+  config                             see current project config value(s) or set new value
+  clone [options]                    clone repository(ies) from git source
+  status                             show repository status
+  sync                               sync repositories with remote [master]
+  exec <script>                      execute command for all or selected repositories
+  run <script>                       run npm script for all or selected repositories
+  normalize [options]                normalize package.json with latest version for all modules
+  clean [options]                    remove all the dependencies and undo module linking in node_modules
+  bootstrap [options]                install all the dependencies and create symlinks to work locally
+  update                             update dependencies for all or selected modules
+  publish [options]                  publish all or selected modules
+  list [options]                     list project modules
+  order [options]                    show project module topological order
+  tree [options]                     show project module tree
 ```
 
 ## Working with Verdaccio for local development

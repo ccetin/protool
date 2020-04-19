@@ -1,6 +1,6 @@
 {
   "name": "project-util",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Project helper tools",
   "main": "index.js",
   "scripts": {
@@ -11,10 +11,12 @@
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",
-    "commander": "^2.20.3",
+    "commander": "^5.0.0",
     "doctrine": "^2.1.0",
     "glob": "^7.1.6",
-    "js-yaml": "^3.13.1"
+    "js-yaml": "^3.13.1",
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -24,9 +26,8 @@
     "sinon": "^8.1.1"
   },
   "bin": {
-    "projexplorer": "./bin/explorer.js",
-    "projbuilder": "./bin/builder.js",
-    "projcleaner": "./bin/cleaner.js",
-    "projpublisher": "./bin/publisher.js"
+    "projectify": "./bin/main.js",
+    "proj": "./bin/main.js",
+    "pro": "./bin/main.js"
   }
 }
