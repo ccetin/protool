@@ -12,6 +12,8 @@ const SyncTask = require('../lib/tasks/SyncTask')
 const ExecTask = require('../lib/tasks/ExecTask')
 const RunTask = require('../lib/tasks/RunTask')
 const NormalizeTask = require('../lib/tasks/NormalizeTask')
+const InstallTask = require('../lib/tasks/InstallTask')
+const DeleteTask = require('../lib/tasks/DeleteTask')
 const CleanTask = require('../lib/tasks/CleanTask')
 const BootstrapTask = require('../lib/tasks/BootstrapTask')
 const UpdateTask = require('../lib/tasks/UpdateTask')
@@ -21,7 +23,7 @@ const OrderTask = require('../lib/tasks/OrderTask')
 const TreeTask = require('../lib/tasks/TreeTask')
 
 const params = {
-  name:    'projectify',
+  name:    'projectutil',
   main:    (...args) => { Cli.printUsage(...args) },
   options: [
     Option.value('npmLogLevel'), Option.value('loggerLevel'), Option.value('path'),
@@ -87,16 +89,29 @@ const params = {
     },
     {
       name:        'normalize',
-      description: 'normalize package.json with latest version for all modules',
+      description: 'normalize all dependencies to latest version for all modules',
       action:      NormalizeTask.action(),
-      options:     [ Option.value('scopedOnly'), Option.value('strictVersion'), Option.value('updateModule') ]
+      options:     [ Option.value('scopedOnly'), Option.value('strictVersion'),
+        Option.value('updateModule') ],
+      commands: [
+        {
+          name:        'install',
+          description: 'install cached dependencies',
+          action:      InstallTask.action()
+        },
+        {
+          name:        'delete',
+          description: 'delete cached dependencies',
+          action:      DeleteTask.action()
+        }
+      ]
     },
     {
       name:        'clean',
       description: 'remove all the dependencies and undo module linking in node_modules',
       action:      CleanTask.action(),
       options:     [
-        Option.value('scope'), Option.value('rmLockfile'), Option.value('global')
+        Option.value('scope'), Option.value('rmLockfile'), Option.value('global'), Option.value('includeAll')
       ]
     },
     {
@@ -105,7 +120,7 @@ const params = {
       action:      BootstrapTask.action(),
       options:     [
         Option.value('scope'), Option.value('dependenciesLink'), Option.value('projectLink'),
-        Option.value('install'), Option.value('cache'), Option.value('global')
+        Option.value('install'), Option.value('cache'), Option.value('global'), Option.value('includeAll')
       ]
     },
     {

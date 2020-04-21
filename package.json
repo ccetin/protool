@@ -26,7 +26,7 @@
     "sinon": "^8.1.1"
   },
   "bin": {
-    "projectify": "./bin/main.js",
+    "projectutil": "./bin/main.js",
     "proj": "./bin/main.js",
     "pro": "./bin/main.js"
   }
