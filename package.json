@@ -1,7 +1,7 @@
 {
-  "name": "project-util",
-  "version": "2.0.0",
-  "description": "Project helper tools",
+  "name": "protool",
+  "version": "1.0.0",
+  "description": "Node project helper tools to automate mostly manual tasks",
   "main": "index.js",
   "scripts": {
     "mocha": "./node_modules/nyc/bin/nyc.js --reporter=text-summary mocha",
@@ -26,8 +26,7 @@
     "sinon": "^8.1.1"
   },
   "bin": {
-    "projectutil": "./bin/main.js",
-    "proj": "./bin/main.js",
+    "protool": "./bin/main.js",
     "pro": "./bin/main.js"
   }
 }
