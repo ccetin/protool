@@ -1,59 +1,37 @@
 extends: 'eslint:recommended'
 
 parserOptions:
-  ecmaVersion: 8
+  ecmaVersion: 2020
 
 env:
+  browser: true
+  commonjs: true
   es6: true
   node: true
   mocha: true
 
 globals:
   Promise: true
-  log: true
-  redis: true
-  server: true
-  Model: true
-  Schema: true
-  Message: true
-  Listener: true
-  Services: true
-  request: true
   expect: true
-  nock: true
-  api: true
-  config: true
+  should: true
+  assert: true
+  sinon: true
+  Atomics: readonly
+  Buffer: readonly
+  SharedArrayBuffer: readonly
 
 rules:
   comma-style: error
   consistent-this:
     - error
     - _this
+  curly:
+    - error
   indent:
     - error
     - 2
     - SwitchCase: 1
-      VariableDeclarator: 2
-  keyword-spacing: error
-  no-console: error
-  no-multi-spaces: off
-  no-spaced-func: error
-  no-trailing-spaces: error
-  quotes:
-    - error
-    - single
-  semi:
-    - error
-    - never
-  curly:
-    - error
-  prefer-arrow-callback: error
-  space-before-blocks: error
-  space-before-function-paren:
-    - error
-    - never
-  space-infix-ops: error
-  space-unary-ops: error
+      VariableDeclarator: 4
   key-spacing:
     - error
     -
@@ -61,3 +39,31 @@ rules:
         beforeColon: false
         afterColon: true
         on: value
+  keyword-spacing: error
+  linebreak-style:
+    - error
+    - unix
+  no-console:
+    - error
+    - allow:
+      - warn
+      - error
+  no-multi-spaces: off
+  no-spaced-func: error
+  no-trailing-spaces: error
+  no-unused-vars:
+    - error
+    - argsIgnorePattern: '^_'
+  prefer-arrow-callback: error
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - never
+  space-before-blocks: error
+  space-before-function-paren:
+    - error
+    - never
+  space-infix-ops: error
+  space-unary-ops: error
