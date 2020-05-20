@@ -26,7 +26,7 @@ const params = {
   main:    (...args) => { Cli.printUsage(...args) },
   options: [
     Option.value('dryRun'), Option.value('npmLogLevel'), Option.value('loggerLevel'),
-    Option.value('path'), Option.value('filter')
+    Option.value('path'), Option.value('filter'), Option.value('scope')
   ],
   commands: [
     {
@@ -34,8 +34,7 @@ const params = {
       description: 'initialize project',
       action:      InitTask.action(),
       options:     [
-        Option.value('title'), Option.value('scope'), Option.value('remote'),
-        Option.value('group')
+        Option.value('title'), Option.value('remote'), Option.value('group')
       ]
     },
     {
@@ -110,7 +109,7 @@ const params = {
       description: 'remove all the dependencies and undo module linking in node_modules',
       action:      CleanTask.action(),
       options:     [
-        Option.value('scope'), Option.value('rmLockfile'), Option.value('global'), Option.value('includeAll')
+        Option.value('rmLockfile'), Option.value('global'), Option.value('includeAll')
       ]
     },
     {
@@ -118,7 +117,7 @@ const params = {
       description: 'install all the dependencies and create symlinks to work locally',
       action:      BootstrapTask.action(),
       options:     [
-        Option.value('scope'), Option.value('dependenciesLink'), Option.value('projectLink'),
+        Option.value('dependenciesLink'), Option.value('projectLink'),
         Option.value('install'), Option.value('cache'), Option.value('global'), Option.value('includeAll')
       ]
     },
@@ -130,17 +129,14 @@ const params = {
     {
       name:        'publish',
       description: 'publish all or selected modules',
-      action:      PublishTask.action(),
-      options:     [
-        Option.value('scope')
-      ]
+      action:      PublishTask.action()
     },
     {
       name:        'list',
       description: 'list project modules',
       action:      ListTask.action(),
       options:     [
-        Option.value('scope'), Option.value('includeAll')
+        Option.value('includeAll')
       ]
     },
     {
@@ -148,7 +144,7 @@ const params = {
       description: 'show project module topological order',
       action:      OrderTask.action(),
       options:     [
-        Option.value('scope'), Option.value('includeAll')
+        Option.value('includeAll')
       ]
     },
     {
@@ -156,7 +152,7 @@ const params = {
       description: 'show project module tree',
       action:      TreeTask.action(),
       options:     [
-        Option.value('scope'), Option.value('includeAll')
+        Option.value('includeAll')
       ]
     }
   ]
