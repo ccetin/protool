@@ -6,6 +6,7 @@ Usage: projectify | proj | pro [options] [command]
 
 Options:
   -V, --version                      output the version number
+  -R, --dry-run                      Dry run
   -L, --npm-log-level <npmLogLevel>  set npm log level (http, warn, [silent])
   -l, --logger-level <level>         set CLI log level (error, warn, [info], debug)
   -p, --path <path>                  path to run command (CWD)
@@ -20,7 +21,7 @@ Commands:
   sync                               sync repositories with remote [master]
   exec <script>                      execute command for all or selected repositories
   run <script>                       run npm script for all or selected repositories
-  normalize [options]                normalize package.json with latest version for all modules
+  normalize [options]                normalize all dependencies to latest version for all modules
   clean [options]                    remove all the dependencies and undo module linking in node_modules
   bootstrap [options]                install all the dependencies and create symlinks to work locally
   update                             update dependencies for all or selected modules
@@ -30,7 +31,8 @@ Commands:
   tree [options]                     show project module tree
 ```
 
-## Working with Verdaccio for local development
+
+## Verdaccio for local development and/or caching
 
 1. Pull docker image:
 ```
