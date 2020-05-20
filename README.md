@@ -2,7 +2,7 @@
 
 
 ```
-Usage: projectify | proj | pro [options] [command]
+Usage: protool | pro [options] [command]
 
 Options:
   -V, --version                      output the version number
@@ -32,7 +32,7 @@ Commands:
 ```
 
 
-## Verdaccio for local development and/or caching
+## Verdaccio for local development and/or caching (optional)
 
 1. Pull docker image:
 ```

@@ -23,7 +23,6 @@ const OrderTask = require('../lib/tasks/OrderTask')
 const TreeTask = require('../lib/tasks/TreeTask')
 
 const params = {
-  name:    'projectutil',
   main:    (...args) => { Cli.printUsage(...args) },
   options: [
     Option.value('dryRun'), Option.value('npmLogLevel'), Option.value('loggerLevel'),
