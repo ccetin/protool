@@ -30,7 +30,7 @@
   ],
   "dependencies": {
     "colors": "^1.4.0",
-    "commander": "^5.0.0",
+    "commander": "^5.1.0",
     "doctrine": "^2.1.0",
     "glob": "^7.1.6",
     "js-yaml": "^3.13.1",
