@@ -26,7 +26,8 @@ const params = {
   main:    (...args) => { Cli.printUsage(...args) },
   options: [
     Option.value('dryRun'), Option.value('npmLogLevel'), Option.value('loggerLevel'),
-    Option.value('path'), Option.value('filter'), Option.value('scope')
+    Option.value('path'), Option.value('filter'), Option.value('scope'),
+    Option.value('exitOnFail')
   ],
   commands: [
     {
