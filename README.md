@@ -56,10 +56,10 @@ uplinks:
   npmjs:
     url: https://registry.npmjs.org/
 packages:
-  '@incubator/*':
+  '@foo/*':
     access: $all
     publish: $all
-  '@humanics/*':
+  '@bar/*':
     access: $all
     publish: $authenticated
     proxy: npmjs
